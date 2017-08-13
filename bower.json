@@ -1,0 +1,22 @@
+{
+  "name": "bower.json",
+  "description": "bower packages",
+  "main": "server.js",
+  "authors": [
+    "Ahmed Megahed <mega_amd@yahoo.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ahmedmega/mean-stack",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "underscore": "^1.8.3"
+  }
+}
