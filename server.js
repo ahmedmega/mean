@@ -2,7 +2,8 @@
 var http = require("http");
 var express = require("express");
 var bodyParser = require('body-parser');
-
+var flash = require('connect-flash');
+var cookieSession = require('cookie-session');
 var app = express();
 
 //var ejsEngine = require("ejs-locals");
@@ -18,6 +19,13 @@ app.set("view engine","vash"); // vash view engine
 
 // parse urlencoded request bodies into req.body
 app.use(bodyParser.urlencoded({extended:false}));
+
+// store session state in browser cookie
+var cookieSession = require('cookie-session');
+app.use(cookieSession({
+    keys: ['secret1', 'secret2']
+}));
+app.use(flash());
 
 //set the public static resource folder
 app.use(express.static(__dirname + "/public"));
