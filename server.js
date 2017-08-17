@@ -20,6 +20,9 @@ app.set("view engine","vash"); // vash view engine
 // parse urlencoded request bodies into req.body
 app.use(bodyParser.urlencoded({extended:false}));
 
+// parse json request bodies into req.body
+app.use(bodyParser.json());
+
 // store session state in browser cookie
 var cookieSession = require('cookie-session');
 app.use(cookieSession({

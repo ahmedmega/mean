@@ -19,6 +19,18 @@
         });
     };
 
+
+  data.addNote = function(categoryName,noteToInsert,next){
+
+     database.getDb(function (err, db) {
+            if (err) {
+                next(err);
+            } else {
+                db.notes.update({name:categoryName},{ $push : {notes:noteToInsert}},next);
+            }
+        });
+  };
+
   data.createNewCategory = function (categoryName, next) {
     database.getDb(function (err, db) {
       if (err) {
@@ -49,6 +61,17 @@
         });
       }
     });
+  };
+
+  data.getNotes = function(categoryName,next){
+
+     database.getDb(function (err, db) {
+            if (err) {
+                next(err);
+            } else {
+                db.notes.findOne({name:categoryName},next);
+            }
+        });
   };
     
     function seedDatabase() {

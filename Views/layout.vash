@@ -4,6 +4,7 @@
   <title>@model.title</title>
   <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="/lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+  @html.block("head")
   <link href="/css/site.css" rel="stylesheet" />
 </head>
 <body>
@@ -37,10 +38,13 @@
   </section>
   <hr />
   <footer class="container">
-    <p>The Board footer</p>
+    <p>The Board</p>
   </footer>
   <script src="/lib/jquery/jquery.min.js"></script>
   <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="/lib/underscore/underscore.js"></script>
+  <script src="/lib/angular/angular.min.js"></script>
+  <script src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+  @html.block("scripts")
 </body>
 </html>
