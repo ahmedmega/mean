@@ -4,6 +4,7 @@
   <title>@model.title</title>
   <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="/lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
   @html.block("head")
   <link href="/css/site.css" rel="stylesheet" />
 </head>
@@ -18,12 +19,21 @@
           <a href='/'>
             <h4>The Board</h4>
           </a>
+          @if (model.user) {
+            <div>@model.user.name</div>
+          }
         </div>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li class="nav">
             <a href="/">Home</a>
+          </li>
+          <li class="nav">
+            <a href="/register">Register</a>
+          </li>
+          <li class="nav">
+            <a href="/login">Login</a>
           </li>
         </ul>
       </div>

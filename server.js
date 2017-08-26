@@ -33,6 +33,11 @@ app.use(flash());
 //set the public static resource folder
 app.use(express.static(__dirname + "/public"));
 
+// use authentication
+var auth = require("./auth");
+//auth.init(app);
+auth.initGoogleOAuth(app);
+
 //Map the routes
 controllers.init(app);
 
@@ -43,4 +48,4 @@ app.get("/api/users",function(req,res){
 
 var server = http.createServer(app);
 
-server.listen(3000);
+server.listen(process.env.port || 3000);

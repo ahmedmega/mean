@@ -20,60 +20,123 @@
     };
 
 
-  data.addNote = function(categoryName,noteToInsert,next){
+    data.addNote = function (categoryName, noteToInsert, next) {
 
-     database.getDb(function (err, db) {
+        database.getDb(function (err, db) {
             if (err) {
                 next(err);
             } else {
-                db.notes.update({name:categoryName},{ $push : {notes:noteToInsert}},next);
+                db.notes.update({ name: categoryName }, { $push: { notes: noteToInsert } }, next);
             }
         });
-  };
+    };
 
-  data.createNewCategory = function (categoryName, next) {
-    database.getDb(function (err, db) {
-      if (err) {
-        next(err);
-      } else {
-        db.notes.find({ name: categoryName }).count(function (err, count) {
-
-          if (err) {
-            next(err);
-          } else {
-
-            if (count != 0) {
-              next("Category already exists");
-            } else {
-              var cat = {
-                name: categoryName,
-                notes: []
-              };
-              db.notes.insert(cat, function (err) {
-                if (err) {
-                  next(err);
-                } else {
-                  next(null);
-                }
-              });
-            }
-          }
-        });
-      }
-    });
-  };
-
-  data.getNotes = function(categoryName,next){
-
-     database.getDb(function (err, db) {
+    data.createNewCategory = function (categoryName, next) {
+        database.getDb(function (err, db) {
             if (err) {
                 next(err);
             } else {
-                db.notes.findOne({name:categoryName},next);
+                db.notes.find({ name: categoryName }).count(function (err, count) {
+
+                    if (err) {
+                        next(err);
+                    } else {
+
+                        if (count != 0) {
+                            next("Category already exists");
+                        } else {
+                            var cat = {
+                                name: categoryName,
+                                notes: []
+                            };
+                            db.notes.insert(cat, function (err) {
+                                if (err) {
+                                    next(err);
+                                } else {
+                                    next(null);
+                                }
+                            });
+                        }
+                    }
+                });
             }
         });
-  };
-    
+    };
+
+    data.getNotes = function (categoryName, next) {
+
+        database.getDb(function (err, db) {
+            if (err) {
+                next(err);
+            } else {
+                db.notes.findOne({ name: categoryName }, next);
+            }
+        });
+    };
+
+
+    data.createNewCategory = function (categoryName, next) {
+        database.getDb(function (err, db) {
+            if (err) {
+                next(err);
+            } else {
+                db.notes.find({ name: categoryName }).count(function (err, count) {
+
+                    if (err) {
+                        next(err);
+                    } else {
+
+                        if (count != 0) {
+                            next("Category already exists");
+                        } else {
+                            var cat = {
+                                name: categoryName,
+                                notes: []
+                            };
+                            db.notes.insert(cat, function (err) {
+                                if (err) {
+                                    next(err);
+                                } else {
+                                    next(null);
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    };
+
+    data.addUser = function (user, next) {
+        database.getDb(function (err, db) {
+            if (err) {
+                console.log("Failed to seed database: " + err);
+            } else {
+                db.users.insert(user, next);
+            }
+        });
+    };
+
+    data.getUser = function (username, next) {
+        database.getDb(function (err, db) {
+            if (err) {
+                next(err);
+            } else {
+                db.users.findOne({ username: username }, next);
+            }
+        });
+    };
+
+    data.getUserGoogle = function (username, next) {
+        database.getDb(function (err, db) {
+            if (err) {
+                next(err);
+            } else {
+                db.users.findOne({ username: username }, next);
+            }
+        });
+    };
+
     function seedDatabase() {
         database.getDb(function (err, db) {
             if (err) {

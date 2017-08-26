@@ -1,0 +1,31 @@
+
+@html.extend('layout', function(model){
+
+  @html.block("body", function (model) {
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+        <!-- GOOGLE INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google</h3>
+
+                    <p>
+                        <strong>id</strong>: @model.user.google.id <br>
+                        <strong>token</strong>: @model.user.google.token <br>
+                        <strong>email</strong>: @model.user.google.email <br>
+                        <strong>name</strong>: @model.user.google.name 
+                    </p>
+
+            </div>
+        </div>
+    </div>
+
+  })
+
+})
