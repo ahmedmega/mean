@@ -9,10 +9,10 @@ This is a sample of using NodeJs as a backend runtime engine with some other fra
  * AngularJs for the client side.
 
 ## Tools:
- * Git as a source control.
+ * Source control (git).
  * PassportJS for security.
  * Socket.io for real time notifications.
- * Vash as view engine.
+ * Vash as a view engine.
  * bower as a package manager for the client libraries.
  * grunt as a task runner.
  * Visual Studio Code as a code editor.
