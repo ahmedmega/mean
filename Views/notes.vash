@@ -28,7 +28,6 @@
         </div>
         </div>        
       </div>
-      color : {{ newNote.color}}
       <div class="form-group">
         <label class="control-label col-lg-1">Content</label>
         <div class="col-lg-5">
