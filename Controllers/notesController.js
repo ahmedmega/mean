@@ -39,7 +39,8 @@
             res.send(400, "Failed to add note to data store");
           } else {
             res.set("Content-Type", "application/json");
-            res.send(201, noteToInsert);
+            //res.send(201, noteToInsert);
+            res.status(201).send(noteToInsert)
           }
         });
 

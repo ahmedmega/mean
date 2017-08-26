@@ -49,3 +49,6 @@ app.get("/api/users",function(req,res){
 var server = http.createServer(app);
 
 server.listen(process.env.port || 3000);
+
+var updater = require("./updater");
+updater.init(server);

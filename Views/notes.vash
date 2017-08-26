@@ -1,6 +1,7 @@
 @html.extend('layout', function(model) {
 
   @html.block("scripts", function (model) {
+      <script src="/lib/socket.io-client/dist/socket.io.js"></script>
       <script src="/js/notesView.js"></script>
   })
 
@@ -18,14 +19,16 @@
       <div class="form-group">
         <label class="control-label col-lg-1">Color</label>
         <div class="col-lg-5">
-          <div class="btn-group">
-            <button type="button" class="btn btn-primary" ng-model="newNote.color" btn-radio="'yellow'">Yellow</button>
-            <button type="button" class="btn btn-primary" ng-model="newNote.color" btn-radio="'blue'">Blue</button>
-            <button type="button" class="btn btn-primary" ng-model="newNote.color" btn-radio="'green'">Green</button>
-            <button type="button" class="btn btn-primary" ng-model="newNote.color" btn-radio="'orange'">Orange</button>
-          </div>
+         
+        <div class="btn-group">
+          <label class="btn btn-primary" ng-model="newNote.color" uib-btn-radio="'yellow'">Yellow</label>
+          <label class="btn btn-primary" ng-model="newNote.color" uib-btn-radio="'blue'">Blue</label>
+          <label class="btn btn-primary" ng-model="newNote.color" uib-btn-radio="'green'">Green</label>
+          <label class="btn btn-primary" ng-model="newNote.color" uib-btn-radio="'orange'">Orange</label>
         </div>
+        </div>        
       </div>
+      color : {{ newNote.color}}
       <div class="form-group">
         <label class="control-label col-lg-1">Content</label>
         <div class="col-lg-5">

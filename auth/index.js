@@ -119,14 +119,14 @@
 
     },
     function(token, refreshToken, profile, done) {
-      console.log('token');
+      
         // make the code asynchronous
         // User.findOne won't fire until we have all our data back from Google
         process.nextTick(function() {
-            console.log('nextTick');
+            
             // try to find the user based on their google id
             data.getUserGoogle({ username : profile.id }, function(err, user) {
-              console.log('getUserGoogle');
+              
                 if (err)
                     return done(err);
 
@@ -165,14 +165,10 @@
     })
     );
 
-    passport.serializeUser(function (user, next) {
-      console.log('serializeUser');
-      console.log(user);
+    passport.serializeUser(function (user, next) {      
       next(null, user.username);
     });
-    passport.deserializeUser(function (key, next) {
-      console.log('deserializeUser');
-      console.log(key);
+    passport.deserializeUser(function (key, next) {      
       data.getUser(key, function (err, user) {
         if (err || !user) {
           next(null, false, { message: "Could not find user" });
